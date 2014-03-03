@@ -31,6 +31,7 @@ setup(
     package_dir={'pyroville': 'pyroville'},
     include_package_data=True,
     install_requires=[
+        'requests'
     ],
     license="BSD",
     zip_safe=False,
