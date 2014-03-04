@@ -10,16 +10,17 @@ Tests for `pyroville` module.
 
 import unittest
 
-from pyroville import pyroville
+from pyroville import Pyroville, PlayerResource
 
 
 class TestPyroville(unittest.TestCase):
 
     def setUp(self):
-        pass
+        self.pyroville = Pyroville('', '')
 
-    def test_something(self):
-        pass
+    def test_set_player_returns_playerresource(self):
+        self.assertIsInstance(
+            self.pyroville.set_player('a@a.com'), PlayerResource)
 
     def tearDown(self):
         pass
