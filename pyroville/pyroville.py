@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import requests
+import json
+
 
 def list_or_args(keys, args):
     try:
         iter(keys)
-        if isinstance(keys, (basestring, str)):
+        if isinstance(keys, (basestring, str, dict)):
             keys = [keys]
     except TypeError:
         keys = [keys]
@@ -30,10 +33,12 @@ class PlayerResource(object):
 
     def __init__(self, email, base_api_url):
         super(PlayerResource, self).__init__()
-        self.base_api_url = base_api_url
+        self.base_resource_url = '{}/players/{}'.format(base_api_url, email)
 
     def credit(self, activities, *args):
         activities = list_or_args(activities, args)
+        credit_url = self.base_resource_url + '/activities'
 
         for a in activities:
-            pass
+            payload = {'do': 'create', 'data': json.dumps(a)}
+            requests.get(credit_url, params=payload)
