@@ -24,11 +24,12 @@ def list_or_args(keys, args):
 
 class Pyroville(object):
 
-    def __init__(self, api_key, site_id):
+    def __init__(self, api_key, site_id, sandbox = False):
         super(Pyroville, self).__init__()
+        env = 'sandbox' if sandbox else 'api.v2'
         self.base_api_url = \
-            'http://sandbox.badgeville.com/cairo/v1/{0}/sites/{1}' \
-            .format(api_key, site_id)
+            'http://{0}.badgeville.com/cairo/v1/{1}/sites/{2}' \
+            .format(env, api_key, site_id)
 
     def set_player(self, email):
         return PlayerResource(email, self.base_api_url)
