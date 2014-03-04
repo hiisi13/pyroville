@@ -5,8 +5,8 @@ pyroville
 .. image:: https://badge.fury.io/py/pyroville.png
     :target: http://badge.fury.io/py/pyroville
     
-.. image:: https://travis-ci.org/hiisi13/pyroville.png?branch=master
-        :target: https://travis-ci.org/hiisi13/pyroville
+.. image:: https://travis-ci.org/hiisi13/pyroville.png   
+    :target: https://travis-ci.org/hiisi13/pyroville
 
 .. image:: https://pypip.in/d/pyroville/badge.png
         :target: https://crate.io/packages/pyroville?version=latest
