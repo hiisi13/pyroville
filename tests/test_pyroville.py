@@ -21,7 +21,7 @@ class TestPyroville(unittest.TestCase):
     player_email = 'a@a.com'
 
     def setUp(self):
-        self.player = Pyroville(self.api_key, self.site_id) \
+        self.player = Pyroville(self.api_key, self.site_id, sandbox=True) \
             .set_player(self.player_email)
         self.credit_url =  \
             'http://sandbox.badgeville.com/cairo/v1/{0}' \
@@ -60,6 +60,14 @@ class TestPyroville(unittest.TestCase):
             for i in range(n):
                 self.player.credit(activity)
         self.assertEqual(len(mock_get.mock_calls), n)
+
+    def test_pyroville_init_with_prod_env(self):
+        piroville = Pyroville(self.api_key, self.site_id)
+        self.assertTrue(piroville.base_api_url.startswith('http://api.v2'))
+
+    def test_pyroville_init_with_sandbox_env(self):
+        piroville = Pyroville(self.api_key, self.site_id, sandbox=True)
+        self.assertTrue(piroville.base_api_url.startswith('http://sandbox'))
 
     def tearDown(self):
         pass
