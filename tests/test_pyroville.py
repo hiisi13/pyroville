@@ -24,12 +24,12 @@ class TestPyroville(unittest.TestCase):
         self.player = Pyroville(self.api_key, self.site_id) \
             .set_player(self.player_email)
         self.credit_url =  \
-            'http://sandbox.badgeville.com/cairo/v1/{}' \
-            '/sites/{}/players/{}/activities' \
+            'http://sandbox.badgeville.com/cairo/v1/{0}' \
+            '/sites/{1}/players/{2}/activities' \
             .format(self.api_key, self.site_id, self.player_email)
 
     def test_set_player_returns_playerresource(self):
-        self.assertIsInstance(self.player, PlayerResource)
+        self.assertTrue(isinstance(self.player, PlayerResource))
 
     def test_player_credit_makes_get_request(self):
         mock_get = Mock()

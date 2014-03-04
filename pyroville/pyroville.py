@@ -22,7 +22,7 @@ class Pyroville(object):
     def __init__(self, api_key, site_id):
         super(Pyroville, self).__init__()
         self.base_api_url = \
-            'http://sandbox.badgeville.com/cairo/v1/{}/sites/{}' \
+            'http://sandbox.badgeville.com/cairo/v1/{0}/sites/{1}' \
             .format(api_key, site_id)
 
     def set_player(self, email):
@@ -33,7 +33,7 @@ class PlayerResource(object):
 
     def __init__(self, email, base_api_url):
         super(PlayerResource, self).__init__()
-        self.base_resource_url = '{}/players/{}'.format(base_api_url, email)
+        self.base_resource_url = '{0}/players/{1}'.format(base_api_url, email)
 
     def credit(self, activities, *args):
         activities = list_or_args(activities, args)
